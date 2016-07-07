@@ -1,0 +1,20 @@
+---
+- name: Install xfs utils
+  yum: name=xfsprogs state=latest
+  when: filesystem_type == 'xfs'
+
+- name: Install e2fs utils
+  yum: name=e2fsprogs state=latest
+  when: filesystem_type == 'ext4' or filesystem_type == 'ext3'
+
+- name: Create volume group
+  lvg: vg={{filesystem_vg}} pvs=/dev/{{filesystem_pv}} state=present
+
+- name: Create logical volume
+  lvol: vg={{filesystem_vg}} lv={{filesystem_lv}} size={{filesystem_size}}
+
+- name: Format filesystem
+  filesystem: fstype={{filesystem_type}} dev=/dev/{{filesystem_vg}}/{{filesystem_lv}}
+
+- name: Add filesystem to fstab and mount it
+  mount: name={{filesystem_mount}} src=/dev/{{filesystem_vg}}/{{filesystem_lv}} fstype={{filesystem_type}} opts={{filesystem_opts}} dump={{filesystem_dump | string}} passno={{filesystem_passno | string}} state=mounted
