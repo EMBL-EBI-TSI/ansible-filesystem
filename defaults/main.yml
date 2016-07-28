@@ -1,7 +1,7 @@
 ---
 filesystem_type: ext4
 filesystem_pv: sda2
-filesystem_vg: rhel_{{ansible_hostname}}
+filesystem_vg: rhel
 filesystem_lv: vol
 filesystem_size: 100M
 filesystem_mount: /vol
