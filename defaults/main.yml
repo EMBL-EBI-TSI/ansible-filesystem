@@ -1,10 +1,10 @@
 ---
-filesystem_type: ext4
-filesystem_pv: sda2
-filesystem_vg: rhel
-filesystem_lv: vol
-filesystem_size: 100M
-filesystem_mount: /vol
-filesystem_dump: 1
-filesystem_passno: 2
-filesystem_opts: defaults
+filesystem_type: ext4        # filesystem type
+filesystem_pv: sda2          # partition/disk for the volume group
+filesystem_vg: rhel          # volume group suffix
+filesystem_lv: vol           # logical volume name
+filesystem_size: 100M        # logical volume size
+filesystem_mount: /vol       # point point
+filesystem_dump: 1           # dump frequency (see fstab)
+filesystem_passno: 2         # passno (see fstab)
+filesystem_opts: defaults    # mount options

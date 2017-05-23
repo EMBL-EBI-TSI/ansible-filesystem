@@ -2,16 +2,6 @@ Filesystem
 ==========
 Create local filesystems.
 
-# Required variables (no defaults):
-#   part: partition/disk for the volume group
-#   vg: volume group suffix
-#   lv: logical volume name
-#   size: logical volume size
-#   type: filesystem type
-#   mount: point point
-#   dump: dump frequency (see fstab)
-#   passno: passno (see fstab)
-
 Requirements
 ------------
 See `meta/main.yml`.
@@ -30,11 +20,12 @@ Example:
 ```
 - hosts: servers
   roles:
-  - role: filesystems
+    - role: filesystems
 ```
 
 TODO
 ----
+- Better documentation and example, ie does not remove filesystems, ...
 
 Licence
 -------
@@ -42,4 +33,4 @@ Licensed under [CC-BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/).
 
 Author Information
 ------------------
-Luis Gracia <luis.gracia@ebi.ac.uk>
+Luis Gracia <luis.gracia@ebi.ac.uk> [luisico](https://github.com/luisico)
